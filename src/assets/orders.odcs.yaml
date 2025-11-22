@@ -1,0 +1,141 @@
+apiVersion: v3.1.0
+kind: DataContract
+id: orders
+name: Orders
+version: 1.0.0
+status: active
+description:
+  purpose: analytical
+  usage: This data set can be used for analytical purposes and AI applications.
+  limitations: Internal use only. Do not disclose with external parties.
+schema:
+  - name: orders
+    logicalType: object
+    physicalType: TABLE
+    description: All historic web shop orders since 2020-01-01. Includes successful and cancelled orders.
+    properties:
+      - name: order_id
+        logicalType: string
+        description: The internal order id for every orders. Do not show this to a customer.
+        businessName: Internal Order ID
+        physicalType: UUID
+        examples:
+          - 99e8bb10-3785-4634-9664-8dc79eb69d43
+        logicalTypeOptions:
+          format: uuid
+        primaryKey: true
+        classification: internal
+        required: true
+        unique: true
+      - name: customer_id
+        logicalType: string
+        description: A reference to the customer number
+        businessName: Customer Number
+        physicalName: ""
+        physicalType: TEXT
+        examples:
+          - c123456789
+        required: true
+        unique: false
+        logicalTypeOptions:
+          minLength: 10
+          maxLength: 10
+        authoritativeDefinitions:
+          - type: definition
+            url: https://example.com/definitions/sales/customer/customer_id
+        tags:
+          - pii:true
+        classification: internal
+        criticalDataElement: true
+      - name: order_total
+        logicalType: integer
+        description: The order total amount in cents, including tax, after discounts.
+          Includes shipping costs.
+        physicalType: INTEGER
+        examples:
+          - "9999"
+        quality:
+          - type: text
+            description: The order_total equals the sum of all related line items.
+        required: true
+        businessName: Order Amount
+      - name: order_timestamp
+        logicalType: timestamp
+        description: The time including timezone when the order payment was successfully
+          confirmed.
+        physicalType: TIMESTAMPTZ
+        businessName: Order Date
+        examples:
+          - 2025-03-01 14:30:00+01
+      - name: order_status
+        businessName: Status
+        description: The business status of the order
+        logicalType: string
+        physicalType: TEXT
+        examples:
+          - shipped
+        quality:
+          - type: library
+            metric: invalidValues
+            mustBe: 0
+            arguments:
+              validValues:
+                - pending
+                - paid
+                - processing
+                - shipped
+                - delivered
+                - cancelled
+                - refunded
+            description: Ensure that there are no other status values.
+    quality:
+      - type: library
+        metric: rowCount
+        mustBeGreaterThan: 100000
+  - name: line_items
+    type: object
+    description: Details for each item in an order
+    properties:
+      - name: line_item_id
+        logicalType: string
+        description: Unique identifier for the line item
+        physicalType: UUID
+        examples:
+          - 12c9ba21-0c44-4e29-ba72-b8fd01c1be30
+        logicalTypeOptions:
+          format: uuid
+        required: true
+        primaryKey: true
+      - name: sku
+        logicalType: string
+        businessName: Stock Keeping Unit
+        description: Identifier for the purchased product
+        physicalType: TEXT
+        examples:
+          - 111222333
+        required: true
+      - name: price
+        logicalType: integer
+        description: Price in cents for this line item including tax
+        physicalType: INTEGER
+        examples:
+          - 9999
+        required: true
+servers:
+  - server: production
+    environment: prod
+    type: postgres
+    host: localhost
+    port: 5432
+    database: postgres
+    schema: dp_orders_v1
+team:
+  name: sales
+  description: This data product is owned by the "Sales" team
+  members:
+    - username: john@example.com
+      name: John Doe
+      role: Owner
+  authoritativeDefinitions:
+    - type: slack
+      url: https://slack.example.com/teams/sales
