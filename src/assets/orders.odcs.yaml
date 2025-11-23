@@ -10,7 +10,6 @@ description:
   limitations: Internal use only. Do not disclose with external parties.
 schema:
   - name: orders
-    logicalType: object
     physicalType: TABLE
     description: All historic web shop orders since 2020-01-01. Includes successful and cancelled orders.
     properties:
@@ -21,8 +20,6 @@ schema:
         physicalType: UUID
         examples:
           - 99e8bb10-3785-4634-9664-8dc79eb69d43
-        logicalTypeOptions:
-          format: uuid
         primaryKey: true
         classification: internal
         required: true
@@ -31,7 +28,6 @@ schema:
         logicalType: string
         description: A reference to the customer number
         businessName: Customer Number
-        physicalName: ""
         physicalType: TEXT
         examples:
           - c123456789
@@ -76,8 +72,8 @@ schema:
           - shipped
         quality:
           - type: library
+            description: Ensure that there are no other status values.
             metric: invalidValues
-            mustBe: 0
             arguments:
               validValues:
                 - pending
@@ -87,13 +83,14 @@ schema:
                 - delivered
                 - cancelled
                 - refunded
-            description: Ensure that there are no other status values.
+            mustBe: 0
     quality:
       - type: library
         metric: rowCount
         mustBeGreaterThan: 100000
+        description: If there are less than 100k rows, something is wrong.
   - name: line_items
-    type: object
+    physicalType: table
     description: Details for each item in an order
     properties:
       - name: line_item_id

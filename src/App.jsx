@@ -62,7 +62,7 @@ function App() {
   return (
     <div className="min-h-screen bg-white">
       {/* Toggle Button - Always Visible */}
-      <div className="fixed top-4 left-4 z-20">
+      <div className="flex fixed top-4 left-4 z-20">
         <button
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           className="flex h-6 w-6 shrink-0 items-center justify-center rounded hover:bg-gray-950/5"
@@ -77,6 +77,9 @@ function App() {
             <path d="M5.5 0.5H2.5C1.39543 0.5 0.5 1.39543 0.5 2.5V11.5C0.5 12.6046 1.39543 13.5 2.5 13.5H5.5M5.5 0.5H13.5C14.6046 0.5 15.5 1.39543 15.5 2.5V11.5C15.5 12.6046 14.6046 13.5 13.5 13.5H5.5M5.5 0.5V13.5" />
           </svg>
         </button>
+          <div className={`ml-2 font-semibold ${isSidebarOpen ? 'flex' : 'hidden'}`}>
+          Data Contract
+          </div>
       </div>
 
       {/* Sidebar */}
@@ -127,7 +130,7 @@ function App() {
           <article id="example" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
             <h2>Example</h2>
             <p>
-              Here's an example of what a data contract might look like:
+              Here's an example of a data contract as Open Data Contract Standard (ODCS) YAML:
             </p>
             <pre className="rounded p-4 overflow-x-auto text-xs">
 {exampleContract}
