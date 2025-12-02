@@ -118,12 +118,19 @@ schema:
         examples:
           - 9999
         required: true
+      - name: order_id
+        required: false
+        primaryKey: false
+        logicalType: string
+        relationships:
+          - type: foreignKey
+            to: orders.order_id
 servers:
   - server: production
     environment: prod
     type: postgres
-    host: localhost
-    port: 5432
+    host: aws-1-eu-central-2.pooler.supabase.com
+    port: 6543
     database: postgres
     schema: dp_orders_v1
 team:

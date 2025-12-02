@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import Sidebar from './components/Sidebar'
 import datacontractImg from './assets/datacontract.png'
+import editorScreenshot from './assets/datacontract-editor-screenshot.png'
 import exampleContract from './assets/orders.odcs.yaml?raw'
 
 function App() {
@@ -134,6 +135,33 @@ function App() {
             </p>
             <pre className="rounded p-4 overflow-x-auto text-xs">
 {exampleContract}
+            </pre>
+          </article>
+
+          {/* Editor */}
+          <article id="editor" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
+            <h2>Data Contract Editor</h2>
+            <p>
+                To create data contracts, we recommend using the <a href="/datacontract-editor">Data Contract Editor</a> which provides a visual interface for creating and editing contracts and comes with a live preview as a HTML representation.
+            </p>
+              <img src={editorScreenshot} alt="Data Contract Editor" />
+              <p>
+                  Many people also like to work with the <a href="/datacontract-excel-template">Excel Template</a> for creating contracts in a spreadsheet format.
+              </p>
+          </article>
+
+          {/* CLI */}
+          <article id="cli" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
+            <h2>Data Contract CLI</h2>
+            <p>
+                The Data Contract CLI is a command-line tool (and Python library and API server) that allows you to test that a data product meets the data contract specification.
+                This is essential to build trust in your data product and ensure that the metadata is kept up-to-date.
+            </p>
+              <pre className="rounded p-4 overflow-x-auto text-xs">
+                  uv tool install --python python3.11 'datacontract-cli[all]'
+                  export DATACONTRACT_POSTGRES_USERNAME=datacontract_cli.egzhawjonpfweuutedfy
+                  export DATACONTRACT_POSTGRES_PASSWORD=jio10JuQfDfl9JCCPdaCCpuZ1YO
+                  datacontract test ./src/assets/orders.odcs.yaml
             </pre>
           </article>
 
