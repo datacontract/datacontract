@@ -93,6 +93,9 @@ function App() {
                         which provides a visual interface for creating and editing contracts and comes with a live
                         preview as a HTML representation.
                     </p>
+                    <p>
+                        Try out the editor below. It's not a screenshot, it's interactive!
+                    </p>
                 </article>
             </main>
 
