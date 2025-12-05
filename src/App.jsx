@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import Sidebar from './components/Sidebar'
+import ScrollyCoding from './components/ScrollyCoding'
 import datacontractImg from './assets/datacontract.png'
 import editorScreenshot from './assets/datacontract-editor-screenshot.png'
-import exampleContract from './assets/orders.odcs.yaml?raw'
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
@@ -91,10 +91,10 @@ function App() {
         className={isSidebarOpen ? 'ml-68' : 'ml-0'}
       >
         {/* Main Content */}
-        <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           {/* Title */}
           <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">Data Contract</h1>
+            <h1 className="text-3xl font-bold text-gray-900 mb-2">datacontract.com</h1>
             <img src={datacontractImg} alt="Data Contract" className="mt-4" />
           </div>
           {/* Introduction */}
@@ -102,41 +102,45 @@ function App() {
             <p>
                 A data contract is a document that defines the structure, format, semantics, quality, and terms of use for exchanging data between a data provider and their consumers. Think of an API, but for data.
             </p>
+              <p>
+                  Let's walk through building a data contract step by step:
+              </p>
           </article>
+        </main>
+
+        {/* Scrollycoding Section - Full Width */}
+        <div className="px-8 py-12 max-w-6xl mx-auto">
+          <ScrollyCoding />
+        </div>
 
 
-          {/* Why Data Contracts Matter */}
-          <article id="why" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
+
+
+        {/* Continue Main Content */}
+        <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+
+        {/* Why Data Contracts Matter */}
+        <article id="why" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
             <h2>Why Data Contracts Matter</h2>
             <ol>
-              <li>
-                <strong>Communication</strong>: Connect data teams by documenting domain knowledge and specifying consumer requirements. Start with a contract-first approach using the visual <a href="/data-contract-editor">Data Contract Editor</a> or the <a href="/excel-template">Excel Template</a>.
-              </li>
-              <li>
-                <strong>Trust</strong>: Data Contract Testing (CLI!)
-              </li>
-              <li>
-                <strong>Discover</strong>: Enterprise Data Marketplace (Entropy Data!)
-              </li>
-              <li>
-                <strong>Context</strong>: Semantics, Structure, and SLAs (MCP!)
-              </li>
-              <li>
-                <strong>Governance</strong>: Terms of Use (Entropy Data MCP!)
-              </li>
+                <li>
+                    <strong>Communication</strong>: Connect data teams by documenting domain knowledge and specifying consumer requirements. Start with a contract-first approach using the visual <a href="/data-contract-editor">Data Contract Editor</a> or the <a href="/excel-template">Excel Template</a>.
+                </li>
+                <li>
+                    <strong>Trust</strong>: Data Contract Testing (CLI!)
+                </li>
+                <li>
+                    <strong>Discover</strong>: Enterprise Data Marketplace (Entropy Data!)
+                </li>
+                <li>
+                    <strong>Context</strong>: Semantics, Structure, and SLAs (MCP!)
+                </li>
+                <li>
+                    <strong>Governance</strong>: Terms of Use (Entropy Data MCP!)
+                </li>
             </ol>
-          </article>
-
-          {/* Example */}
-          <article id="example" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
-            <h2>Example</h2>
-            <p>
-              Here's an example of a data contract as Open Data Contract Standard (ODCS) YAML:
-            </p>
-            <pre className="rounded p-4 overflow-x-auto text-xs">
-{exampleContract}
-            </pre>
-          </article>
+        </article>
 
           {/* Editor */}
           <article id="editor" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
@@ -187,7 +191,7 @@ function App() {
 
         {/* Footer */}
         <footer className="border-t border-gray-200 mt-12">
-          <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
             <p className="text-center text-gray-500 text-xs">
               Learn more about data contracts and data mesh principles
             </p>
