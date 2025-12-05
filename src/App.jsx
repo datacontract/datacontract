@@ -1,11 +1,15 @@
 import ScrollyCoding from './components/ScrollyCoding'
 import DataContractEditor from './components/DataContractEditor'
 import Terminal from './components/Terminal'
+import DeprecationBanner from './components/DeprecationBanner'
 import datacontractImg from './assets/datacontract-diagram.png'
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
+            {/* Deprecation Banner */}
+            <DeprecationBanner />
+
             {/* Main Content */}
             <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Title */}
