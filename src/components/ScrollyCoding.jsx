@@ -7,9 +7,9 @@ import { focus } from './focus'
 // Using # !focus(start:end) to highlight new sections
 const codeSteps = [
   {
-    id: 'foundation',
-    title: 'Foundation',
-    description: 'Every data contract starts with its foundation: the API version, kind, unique identifier, name, version number, and status. This metadata identifies the contract and enables versioning.',
+    id: 'fundamentals',
+    title: 'Fundamentals',
+    description: 'Every data contract starts with its fundamentals: the version of the standard, unique identifier, name, data contract version number, and status. This metadata identifies the contract and enables versioning.',
     code: `# !focus(1:6)
 apiVersion: v3.1.0
 kind: DataContract
@@ -21,39 +21,44 @@ status: active`
   {
     id: 'schema',
     title: 'Schema',
-    description: 'The schema defines the structure of your data. Here we define an "orders" table with fields like order_id, customer_id, order_total, and timestamps. Each property includes its type, description, and constraints.',
+    description: 'The schema defines the structure and semantics of your data. Here we define an "orders" table with fields like order_id, customer_id, order_total, and timestamps. Each property includes its type, description, and constraints.',
     code: `apiVersion: v3.1.0
 kind: DataContract
 id: orders
 name: Orders
 version: 1.0.0
 status: active
-# !focus(1:25)
+# !focus(1:30)
 schema:
   - name: orders
     physicalType: TABLE
-    description: All historic web shop orders since 2020-01-01.
+    description: All successful and cancelled web-shop orders since 2020-01-01
     properties:
       - name: order_id
         logicalType: string
-        physicalType: UUID
         primaryKey: true
-        required: true
-        unique: true
       - name: customer_id
+        businessName: "Customer Identifier"
         logicalType: string
-        physicalType: TEXT
+        physicalType: VARCHAR(10)
         required: true
+        examples:
+          - "C-10000001"
         classification: internal
         tags:
           - pii:true
       - name: order_total
         logicalType: integer
         physicalType: INTEGER
+        description: "Total order amount in cent"
         required: true
+        logicalTypeOptions:
+          minimum: 0
       - name: order_status
         logicalType: string
-        physicalType: TEXT`
+        physicalType: TEXT
+        examples:
+          - "shipped"`
   },
   {
     id: 'quality',
@@ -68,38 +73,35 @@ status: active
 schema:
   - name: orders
     physicalType: TABLE
-    description: All historic web shop orders since 2020-01-01.
+    description: All successful and cancelled web-shop orders since 2020-01-01
     properties:
       - name: order_id
         logicalType: string
         primaryKey: true
-        required: true
       - name: order_status
         logicalType: string
-# !focus(1:18)
+# !focus(1:19)
         quality:
           - type: library
+            description: Only valid order statuses
             metric: invalidValues
             arguments:
               validValues:
                 - pending
-                - paid
-                - processing
                 - shipped
-                - delivered
                 - cancelled
-                - refunded
             mustBe: 0
+    # table-level quality checks
     quality:
-      - type: library
-        metric: rowCount
-        mustBeGreaterThan: 100000
-        description: If there are less than 100k rows, something is wrong.`
+      - type: sql
+        description: Expect 100k+ rows
+        query: select count(*) from orders
+        mustBeGreaterThan: 100000`
   },
   {
     id: 'team',
     title: 'Team',
-    description: 'Document who owns and maintains the data product. Include team name, description, members with their roles, and links to communication channels like Slack.',
+    description: 'Document who owns and maintains the data contract. Include team name, description, and members with their roles. Add support channels, how data consumers can reach out to the owners.',
     code: `apiVersion: v3.1.0
 kind: DataContract
 id: orders
@@ -109,21 +111,25 @@ status: active
 schema:
   - name: orders
     physicalType: TABLE
+    description: All successful and cancelled web-shop orders since 2020-01-01
     properties:
       - name: order_id
         logicalType: string
         primaryKey: true
-# !focus(1:10)
+# !focus(1:12)
 team:
   name: sales
-  description: This data product is owned by the "Sales" team
+  description: Owned by the "Sales" team
   members:
     - username: john@example.com
       name: John Doe
       role: Owner
-  authoritativeDefinitions:
-    - type: slack
-      url: https://slack.example.com/teams/sales`
+support:
+  - channel: "#sales-support"
+    tool: "slack"
+    url: "https://example.slack.com/archives/C123456789"
+    description: "Support and collaboration"
+`
   },
   {
     id: 'description',
@@ -135,13 +141,19 @@ id: orders
 name: Orders
 version: 1.0.0
 status: active
-# !focus(1:6)
+# !focus(1:12)
 description:
-  purpose: analytical
-  usage: This data set can be used for analytical purposes
-         and AI applications.
-  limitations: Internal use only.
-               Do not disclose with external parties.
+  purpose: "Provides order and line item data for analytics and reporting"
+  usage: "Used by analytics team for sales analysis and business intelligence"
+  limitations: "Contains only the last 2 years of data"
+  customProperties:
+    - property: "sensitivity"
+      value: "secret"
+      description: "Data contains personally identifiable information"
+  authoritativeDefinitions:
+    - url: "https://entropy-data.com/policies/gdpr-compliance"
+      type: "businessDefinition"
+      description: "GDPR compliance policy for handling customer data"
 schema:
   - name: orders
     physicalType: TABLE
@@ -155,44 +167,41 @@ team:
   {
     id: 'sla',
     title: 'SLAs',
-    description: 'Service Level Agreements define expectations for data freshness, availability, and support. While not shown in this minimal example, SLAs can include update frequency, latency guarantees, and response times.',
+    description: 'Service Level Agreements define non-functional guarantees. Data consumers can match these with their usa-case requirements.',
     code: `apiVersion: v3.1.0
 kind: DataContract
 id: orders
 name: Orders
 version: 1.0.0
 status: active
-description:
-  purpose: analytical
-  usage: This data set can be used for analytical purposes.
-# !focus(1:13)
+# !focus(1:16)
 slaProperties:
-  - property: frequency
-    value: daily
-    description: Data is updated every 24 hours
-  - property: latency
-    value: < 1 hour
-    description: Data available within 1 hour of source update
   - property: availability
     value: 99.9%
-    description: Data warehouse uptime guarantee
+    description: Data platform uptime guarantee
+  - property: retention
+    value: 1
+    unit: year
+    description: Data well be deleted after 1 year
+  - property: freshness
+    value: 24
+    unit: hours
+    element: orders.order_date
+    description: Within 24 hours of order placement
   - property: support
     value: business hours
-    description: Support available during business hours`
+    description: Support only during business hours`
   },
   {
-    id: 'server',
-    title: 'Server',
-    description: 'Finally, specify where the data lives. The server configuration includes connection details for different environments, enabling automated testing and data discovery.',
+    id: 'servers',
+    title: 'Servers',
+    description: 'Finally, specify where the data lives. The server configuration includes connection details for different environments.',
     code: `apiVersion: v3.1.0
 kind: DataContract
 id: orders
 name: Orders
 version: 1.0.0
 status: active
-description:
-  purpose: analytical
-  usage: This data set can be used for analytical purposes.
 schema:
   - name: orders
     physicalType: TABLE
@@ -200,13 +209,11 @@ schema:
       - name: order_id
         logicalType: string
         primaryKey: true
-team:
-  name: sales
 # !focus(1:9)
 servers:
-  - server: production
-    environment: prod
+  - server: postgres
     type: postgres
+    environment: prod
     host: aws-1-eu-central-2.pooler.supabase.com
     port: 6543
     database: postgres
@@ -262,7 +269,7 @@ export default function ScrollyCoding() {
     <div className="flex gap-8">
       {/* Left side: Scrollable content */}
       <div className="w-1/2 space-y-4">
-        <div className="h-[30vh]" /> {/* Top spacer */}
+        <div className="h-[10vh]" /> {/* Top spacer */}
 
         {codeSteps.map((step, index) => (
           <div
@@ -290,8 +297,11 @@ export default function ScrollyCoding() {
             </p>
           </div>
         ))}
+          <p className="prose prose-sm ">
+              Reference: <a href="https://bitol-io.github.io/open-data-contract-standard/latest/">Open Data Contract Standard</a>
+          </p>
 
-        <div className="h-[50vh]" /> {/* Bottom spacer */}
+        <div className="h-[10vh]" /> {/* Bottom spacer */}
       </div>
 
       {/* Right side: Sticky code panel */}
@@ -303,7 +313,7 @@ export default function ScrollyCoding() {
               <div className="w-3 h-3 rounded-full bg-yellow-500" />
               <div className="w-3 h-3 rounded-full bg-green-500" />
             </div>
-            <span className="text-gray-400 text-xs ml-2">orders.odcs.yaml</span>
+            <span className="text-gray-400 text-xs ml-2">orders-v1.odcs.yaml</span>
           </div>
           <div className="p-4 text-sm min-w-[500px]">
             {highlightedSteps[selectedIndex] ? (

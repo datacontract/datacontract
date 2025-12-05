@@ -1,3 +1,21 @@
+import {
+  DocumentationIcon,
+  FileCodeIcon,
+  ToolsIcon,
+  SampleIcon,
+  SlackIcon,
+  BookIcon,
+  UsersIcon,
+} from './Icons'
+
+const sectionIcons = {
+  introduction: BookIcon,
+  specification: FileCodeIcon,
+  tools: ToolsIcon,
+  examples: SampleIcon,
+  community: UsersIcon,
+}
+
 function Sidebar({ isOpen, sections }) {
   return (
     <aside
@@ -9,25 +27,29 @@ function Sidebar({ isOpen, sections }) {
         <div className="h-14"></div>
         <div className="mt-3">
           <div className="space-y-8">
-          {sections.map((section) => (
-            <div key={section.id}>
-              <h3 className="text-sm font-semibold text-gray-900 mb-3">
-                {section.title}
-              </h3>
-              <ul className="space-y-2 border-l border-gray-200">
-                {section.items.map((item) => (
-                  <li key={item.id}>
-                    <a
-                      href={item.href}
-                      className="block -ml-px border-l border-transparent pl-4 text-sm text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors"
-                    >
-                      {item.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {sections.map((section) => {
+            const IconComponent = sectionIcons[section.id] || DocumentationIcon
+            return (
+              <div key={section.id}>
+                <h3 className="flex items-center gap-2 text-sm font-semibold text-gray-900 mb-3">
+                  <IconComponent />
+                  {section.title}
+                </h3>
+                <ul className="space-y-2 border-l border-gray-200">
+                  {section.items.map((item) => (
+                    <li key={item.id}>
+                      <a
+                        href={item.href}
+                        className="block -ml-px border-l border-transparent pl-4 text-sm text-gray-600 hover:text-gray-900 hover:border-gray-400 transition-colors"
+                      >
+                        {item.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })}
           </div>
         </div>
       </nav>

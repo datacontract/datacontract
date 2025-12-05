@@ -1,203 +1,279 @@
-import { useState, useEffect } from 'react'
-import Sidebar from './components/Sidebar'
 import ScrollyCoding from './components/ScrollyCoding'
-import datacontractImg from './assets/datacontract.png'
-import editorScreenshot from './assets/datacontract-editor-screenshot.png'
+import DataContractEditor from './components/DataContractEditor'
+import Terminal from './components/Terminal'
+import datacontractImg from './assets/datacontract-diagram.png'
 
 function App() {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(() => {
-    const saved = localStorage.getItem('sidebarOpen')
-    return saved !== null ? JSON.parse(saved) : true
-  })
-
-  useEffect(() => {
-    localStorage.setItem('sidebarOpen', JSON.stringify(isSidebarOpen))
-  }, [isSidebarOpen])
-
-  const sections = [
-    {
-      id: 'introduction',
-      title: 'Introduction',
-      items: [
-        { id: 'datacontract', title: 'Data Contract', href: '/' },
-      ]
-    },
-    {
-      id: 'specification',
-      title: 'Specification',
-      items: [
-        { id: 'open-data-contract-standard', title: 'Open Data Contract Standard', href: '/open-data-contract-standard' },
-        { id: 'open-data-product-standard', title: 'Open Data Product Standard', href: '/open-data-product-standard' },
-        { id: 'data-contract-specification', title: 'Data Contract Specification', href: '/open-data-contract-standard' },
-        { id: 'bitol', title: 'Bitol', href: '/bitol' },
-      ]
-    },
-    {
-      id: 'tools',
-      title: 'Tools',
-      items: [
-        { id: 'data-contract-editor', title: 'Data Contract Editor', href: '#' },
-        { id: 'data-contract-cli', title: 'Data Contract CLI', href: '#' },
-        { id: 'excel-template', title: 'Excel Template', href: '#' },
-        { id: 'entropy-data', title: 'Entropy Data', href: '#' },
-        { id: 'mcp', title: 'MCP', href: '#' },
-      ]
-    },
-    {
-      id: 'examples',
-      title: 'Examples',
-      items: [
-        { id: 'example-minimal', title: 'Minimal Example', href: '#' },
-        { id: 'example-full', title: 'Full Example', href: '#' },
-      ]
-    },
-    {
-      id: 'community',
-      title: 'Community',
-      items: [
-        { id: 'slack', title: 'Slack', href: '#' },
-      ]
-    },
-  ]
-
   return (
     <div className="min-h-screen bg-white">
-      {/* Toggle Button - Always Visible */}
-      <div className="flex fixed top-4 left-4 z-20">
-        <button
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="flex h-6 w-6 shrink-0 items-center justify-center rounded hover:bg-gray-950/5"
-          aria-label={isSidebarOpen ? "Close sidebar" : "Open sidebar"}
-        >
-          <svg
-            viewBox="0 0 16 14"
-            fill="none"
-            className="h-3.5 shrink-0 stroke-gray-950"
-            strokeWidth={1.5}
-          >
-            <path d="M5.5 0.5H2.5C1.39543 0.5 0.5 1.39543 0.5 2.5V11.5C0.5 12.6046 1.39543 13.5 2.5 13.5H5.5M5.5 0.5H13.5C14.6046 0.5 15.5 1.39543 15.5 2.5V11.5C15.5 12.6046 14.6046 13.5 13.5 13.5H5.5M5.5 0.5V13.5" />
-          </svg>
-        </button>
-          <div className={`ml-2 font-semibold ${isSidebarOpen ? 'flex' : 'hidden'}`}>
-          Data Contract
-          </div>
-      </div>
+            {/* Main Content */}
+            <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                {/* Title */}
+                <div className="mb-8">
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2">datacontract.com</h1>
 
-      {/* Sidebar */}
-      <Sidebar isOpen={isSidebarOpen} sections={sections} />
+                    <article className="prose mb-3 max-w-none">
+                        <p>
+                            Open standards and open-source tooling for data contracts.
+                        </p>
+                    </article>
 
-      {/* Main Content */}
-      <div
-        className={isSidebarOpen ? 'ml-68' : 'ml-0'}
-      >
-        {/* Main Content */}
-        <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          {/* Title */}
-          <div className="mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">datacontract.com</h1>
-            <img src={datacontractImg} alt="Data Contract" className="mt-4" />
-          </div>
-          {/* Introduction */}
-          <article id="what-is" className="prose prose-sm mb-10 max-w-none">
-            <p>
-                A data contract is a document that defines the structure, format, semantics, quality, and terms of use for exchanging data between a data provider and their consumers. Think of an API, but for data.
-            </p>
-              <p>
-                  Let's walk through building a data contract step by step:
-              </p>
-          </article>
-        </main>
+                    <img src={datacontractImg} alt="Data Contract" className="mt-4"/>
+                </div>
 
-        {/* Scrollycoding Section - Full Width */}
-        <div className="px-8 py-12 max-w-6xl mx-auto">
-          <ScrollyCoding />
-        </div>
+                {/* Introduction */}
+                <article id="what-is" className="prose mb-10 max-w-none">
+                    <p>
+                        A data contract is a document that defines the structure, format, semantics, quality, and terms
+                        of
+                        use for exchanging data between a data producer and their consumers. Think of an API, but for
+                        data.
+                    </p>
+                    <p>
+                        The industry standard for building data contracts is the <a
+                        href="https://bitol-io.github.io/open-data-contract-standard/latest/">Open Data Contract
+                        Standard</a> (ODCS), led by Bitol, a Linux Foundation project.
+                        Let's build a data contract step-by-step:
+                    </p>
+                </article>
+            </main>
+
+            {/* Scrollycoding Section - Full Width */}
+            <div className="px-8 py-12 max-w-6xl mx-auto">
+                <ScrollyCoding/>
+            </div>
 
 
+            {/* Continue Main Content */}
+            <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-48">
 
 
-        {/* Continue Main Content */}
-        <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                {/* Why Data Contracts Matter */}
+                <article id="why" className="prose max-w-none mb-48 scroll-mt-16">
+                    <h2>Why Data Contracts Matter</h2>
+                    <p>
+                        Data contracts are not just documentation. They are the foundation for building trust and data
+                        governance with a high degree of automation.
+                    </p>
+                    <ol>
+                        <li>
+                            <strong>Communication</strong>: Bring data producers and data consumers together. Work
+                            through the
+                            data contract sections and capture domain knowledge and specify consumer expectations.
+                            Start contract-first using the visual <a href="/data-contract-editor">Data Contract
+                            Editor</a> or the <a href="/excel-template">Data Contract Excel Template</a>.
+                        </li>
+                        <li>
+                            <strong>Trust</strong>: Automatically check that the data conforms to the data contract.
+                            Integrate the open-source <a href="https://github.com/datacontract/datacontract-cli">Data
+                            Contract CLI</a> into your CI/CD or data pipelines to enforce data quality and contract
+                            compliance.
+                        </li>
+                        <li>
+                            <strong>Discovery</strong>: Data contracts provide the best possible metadata. Make them
+                            available
+                            in a central data marketplace, such as <a href="https://entropy-data.com">Entropy Data</a>,
+                            for potential data consumers to explore, request, and use.
+                            With <a href="https://entropy-data.com/learn/mcp">MCP</a>, AI agents can leverage the data
+                            contract metadata as necessary context to chat and work with business data.
+                        </li>
+                    </ol>
+                </article>
+
+                {/* Editor */}
+                <article id="editor" className="prose max-w-none mb-10 scroll-mt-16">
+                    <h2>Data Contract Editor</h2>
+                    <p>
+                        To create data contracts, we recommend using the <a href="https://editor.datacontract.com/">Data
+                        Contract Editor</a> (<a href="https://github.com/datacontract/datacontract-editor">GitHub</a>)
+                        which provides a visual interface for creating and editing contracts and comes with a live
+                        preview as a HTML representation.
+                    </p>
+                </article>
+            </main>
+
+            {/* Editor Section - Browser Frame */}
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+                <div className="rounded-lg bg-white border border-gray-200 shadow-xl overflow-hidden">
+                    {/* Browser-like header */}
+                    <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-b border-gray-200">
+                        <div className="flex gap-1.5">
+                            <div className="w-3 h-3 rounded-full bg-red-400"/>
+                            <div className="w-3 h-3 rounded-full bg-yellow-400"/>
+                            <div className="w-3 h-3 rounded-full bg-green-400"/>
+                        </div>
+                        <span className="text-gray-500 text-xs ml-2"><a
+                            href="https://editor.datacontract.com">editor.datacontract.com</a></span>
+                    </div>
+                    {/* Editor content */}
+                    <DataContractEditor
+                        height="700px"
+                        onSave={(yaml) => console.log('Saved:', yaml)}
+                    />
+                </div>
+            </div>
+
+            <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ">
+                {/* CLI */}
+                <article id="cli" className="prose max-w-none scroll-mt-16 py-48">
+                    <h2>Data Contract CLI</h2>
+                    <p>
+                        The <a href="https://github.com/datacontract/datacontract-cli">Data Contract CLI</a> is an
+                        open-source command-line tool (and Python library and API server) that allows you to enforce
+                        data contracts and to detect schema drift.
+                        This is essential to build trust in your data product and ensure that the metadata is kept
+                        up-to-date.
+                    </p>
+                    <Terminal
+                        lines={[
+                            {
+                                type: 'command',
+                                text: 'export DATACONTRACT_POSTGRES_USERNAME=datacontract_cli.egzhawjonpfweuutedfy'
+                            },
+                            {
+                                type: 'command',
+                                text: 'export DATACONTRACT_POSTGRES_PASSWORD=jio10JuQfDfl9JCCPdaCCpuZ1YO'
+                            },
+                            {type: 'command', text: 'datacontract test orders-v1.odcs.yaml'},
+                            '',
+                            'Testing orders-v1.odcs.yaml',
+                            '╭────────┬──────────────────────────────────────────────────────────┬─────────────────────────┬─────────╮',
+                            '│ Result │ Check                                                    │ Field                   │ Details │',
+                            '├────────┼──────────────────────────────────────────────────────────┼─────────────────────────┼─────────┤',
+                            '│ passed │ Check that field \'line_item_id\' is present               │ line_items.line_item_id │         │',
+                            '│ passed │ Check that field line_item_id has type UUID              │ line_items.line_item_id │         │',
+                            '│ passed │ Check that field line_item_id has no missing values      │ line_items.line_item_id │         │',
+                            '│ passed │ Check that field \'order_id\' is present                   │ line_items.order_id     │         │',
+                            '│ passed │ Check that field order_id has type UUID                  │ line_items.order_id     │         │',
+                            '│ passed │ Check that field \'price\' is present                      │ line_items.price        │         │',
+                            '│ passed │ Check that field price has type INTEGER                  │ line_items.price        │         │',
+                            '│ passed │ Check that field price has no missing values             │ line_items.price        │         │',
+                            '│ passed │ Check that field \'sku\' is present                        │ line_items.sku          │         │',
+                            '│ passed │ Check that field sku has type TEXT                       │ line_items.sku          │         │',
+                            '│ passed │ Check that field sku has no missing values               │ line_items.sku          │         │',
+                            '│ passed │ Check that field \'customer_id\' is present                │ orders.customer_id      │         │',
+                            '│ passed │ Check that field customer_id has type TEXT               │ orders.customer_id      │         │',
+                            '│ passed │ Check that field customer_id has no missing values       │ orders.customer_id      │         │',
+                            '│ passed │ Check that field \'order_id\' is present                   │ orders.order_id         │         │',
+                            '│ passed │ Check that field order_id has type UUID                  │ orders.order_id         │         │',
+                            '│ passed │ Check that field order_id has no missing values          │ orders.order_id         │         │',
+                            '│ passed │ Check that unique field order_id has no duplicate values │ orders.order_id         │         │',
+                            '│ passed │ Check that field \'order_status\' is present               │ orders.order_status     │         │',
+                            '│ passed │ Check that field order_status has type TEXT              │ orders.order_status     │         │',
+                            '│ passed │ Check that field \'order_timestamp\' is present            │ orders.order_timestamp  │         │',
+                            '│ passed │ Check that field order_timestamp has type TIMESTAMPTZ    │ orders.order_timestamp  │         │',
+                            '│ passed │ Check that field \'order_total\' is present                │ orders.order_total      │         │',
+                            '│ passed │ Check that field order_total has type INTEGER            │ orders.order_total      │         │',
+                            '│ passed │ Check that field order_total has no missing values       │ orders.order_total      │         │',
+                            '╰────────┴──────────────────────────────────────────────────────────┴─────────────────────────┴─────────╯',
+                            '🟢 data contract is valid. Run 25 checks. Took 1.615702 seconds.',
+                        ]}
+                    />
+
+                    <p className="mt-10">
+                        The <a href="https://github.com/datacontract/datacontract-cli">Data Contract CLI</a> supports
+                        all major data platforms, including Databricks, Snowflake, AWS, BigQuery, and Azure.
+                        Engineers can generate code and integrate with other systems using
+                        the <em>import</em> and <em>export</em> command.
+                        And the Data Contract CLI can also be used in Python scripts, notebooks, as a <a
+                        href="https://github.com/datacontract/datacontract-action/">GitHub Action</a>, as a <a
+                        href="https://api.datacontract.com/">web server</a>, and much more.
+
+                    </p>
+                </article>
 
 
-        {/* Why Data Contracts Matter */}
-        <article id="why" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
-            <h2>Why Data Contracts Matter</h2>
-            <ol>
-                <li>
-                    <strong>Communication</strong>: Connect data teams by documenting domain knowledge and specifying consumer requirements. Start with a contract-first approach using the visual <a href="/data-contract-editor">Data Contract Editor</a> or the <a href="/excel-template">Excel Template</a>.
-                </li>
-                <li>
-                    <strong>Trust</strong>: Data Contract Testing (CLI!)
-                </li>
-                <li>
-                    <strong>Discover</strong>: Enterprise Data Marketplace (Entropy Data!)
-                </li>
-                <li>
-                    <strong>Context</strong>: Semantics, Structure, and SLAs (MCP!)
-                </li>
-                <li>
-                    <strong>Governance</strong>: Terms of Use (Entropy Data MCP!)
-                </li>
-            </ol>
-        </article>
+                {/* Marketplace */}
+                <article id="entropy-data" className="prose max-w-none scroll-mt-16 py-36">
+                    <h2>Entropy Data</h2>
 
-          {/* Editor */}
-          <article id="editor" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
-            <h2>Data Contract Editor</h2>
-            <p>
-                To create data contracts, we recommend using the <a href="/datacontract-editor">Data Contract Editor</a> which provides a visual interface for creating and editing contracts and comes with a live preview as a HTML representation.
-            </p>
-              <img src={editorScreenshot} alt="Data Contract Editor" />
-              <p>
-                  Many people also like to work with the <a href="/datacontract-excel-template">Excel Template</a> for creating contracts in a spreadsheet format.
-              </p>
-          </article>
+                    <p className="mt-10">
+                        <a href="https://entropy-data.com">Entropy Data</a> is our commercial product to manage data
+                        products with data contracts.
+                        It natively supports the Open Data Contract Standard, includes the Data Contract Editor, and
+                        integrates the Data Contract CLI.
+                    </p>
+                </article>
+            </main>
 
-          {/* CLI */}
-          <article id="cli" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
-            <h2>Data Contract CLI</h2>
-            <p>
-                The Data Contract CLI is a command-line tool (and Python library and API server) that allows you to test that a data product meets the data contract specification.
-                This is essential to build trust in your data product and ensure that the metadata is kept up-to-date.
-            </p>
-              <pre className="rounded p-4 overflow-x-auto text-xs">
-                  uv tool install --python python3.11 'datacontract-cli[all]'
-                  export DATACONTRACT_POSTGRES_USERNAME=datacontract_cli.egzhawjonpfweuutedfy
-                  export DATACONTRACT_POSTGRES_PASSWORD=jio10JuQfDfl9JCCPdaCCpuZ1YO
-                  datacontract test ./src/assets/orders.odcs.yaml
-            </pre>
-          </article>
+            {/* Entropy Data Section - Browser Frame */}
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+                <a href="http://demo.entropy-data.com">
+                    <div className="rounded-lg bg-white border border-gray-200 shadow-xl overflow-hidden">
+                        <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-b border-gray-200">
+                            <div className="flex gap-1.5">
+                                <div className="w-3 h-3 rounded-full bg-red-400"/>
+                                <div className="w-3 h-3 rounded-full bg-yellow-400"/>
+                                <div className="w-3 h-3 rounded-full bg-green-400"/>
+                            </div>
+                            <span className="text-gray-500 text-xs ml-2"><a
+                                href="https://entropy-data.com">entropy-data.com</a></span>
+                        </div>
+                        <img src="https://entropy-data.com/media/datamesh-manager-marketplace.webp"
+                             alt="Entropy Data Marketplace" className="w-full"/>
+                    </div>
+                </a>
+            </div>
 
-          {/* Implementation */}
-          <article id="getting-started" className="prose prose-sm max-w-none mb-10 scroll-mt-16">
-            <h2>Getting Started</h2>
-            <ol>
-              <li>
-                <strong>Define Your Contract</strong> — Start by documenting the schema, quality expectations, and semantics of your data product.
-              </li>
-              <li>
-                <strong>Validate on Write</strong> — Implement validation checks when data is produced to ensure contract compliance.
-              </li>
-              <li>
-                <strong>Monitor & Alert</strong> — Set up monitoring to detect violations and alert the responsible teams.
-              </li>
-              <li>
-                <strong>Version & Evolve</strong> — Use versioning to manage changes and coordinate updates with consumers.
-              </li>
-            </ol>
-          </article>
-        </main>
+            <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <article className="prose max-w-none mb-10">
+                    The core features are:
+                    <ul>
+                        <li><strong>Marketplace</strong> — A self-service data product marketplace for teams and AI
+                            agents to discover, request, and access data products with automated approval workflows.
+                        </li>
+                        <li><strong>Studio</strong> — Design and develop data products using Web UI, YAML editor, API,
+                            or Excel templates with built-in testing to ensure compliance before production.
+                        </li>
+                        <li><strong>Governance</strong> — Define ownership rules, naming conventions, and data
+                            classification standards with AI-powered automated compliance checks.
+                        </li>
+                        <li><strong>AI-Ready</strong> — Model Context Protocol (MCP) enables AI agents to access data
+                            products and write queries in natural language.
+                        </li>
+                        <li><strong>Flexible Deployment</strong> — Available as cloud SaaS, self-hosted, or enterprise
+                            single-tenant options.
+                        </li>
+                    </ul>
 
-        {/* Footer */}
-        <footer className="border-t border-gray-200 mt-12">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <p className="text-center text-gray-500 text-xs">
-              Learn more about data contracts and data mesh principles
-            </p>
-          </div>
-        </footer>
-      </div>
+                    <p>
+                        Try the <a href="https://demo.entropy-data.com/">1-Click Playground</a> or <a
+                        href="https://github.com/entropy-data/entropy-data-ce">run it locally on your machine with
+                        Docker</a>.
+                    </p>
+
+                </article>
+
+
+            </main>
+
+            {/* Footer */}
+            <footer className="bg-white">
+
+                <div className="mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
+
+
+                    <div className="mt-10 text-xs leading-5 text-gray-500">
+                        <div className="flex justify-center space-x-6">
+                            <img src="https://entropy-data.com/media/logo_fuchsia_v2.svg" className="w-16"/>
+                        </div>
+
+                        <div className="text-center mt-3">
+                            This website is maintained by <a href="https://www.entropy-data.com/">Entropy Data</a>
+                        </div>
+                    </div>
+
+
+                    <nav className="-mb-6 mt-10 md:columns-2 text-center sm:flex sm:justify-center sm:space-x-12"
+                         aria-label="Footer">
+                        <div className="pb-6">
+                            <a href="https://entropy-data.com/legal-notice"
+                               className="text-sm leading-6 text-gray-600 hover:text-gray-900">Legal Notice</a>
+                        </div>
+
+                    </nav>
+                </div>
+            </footer>
     </div>
   )
 }
