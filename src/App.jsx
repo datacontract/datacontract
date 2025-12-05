@@ -14,15 +14,15 @@ function App() {
             <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Title */}
                 <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">datacontract.com</h1>
+                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Data Contracts</h1>
 
                     <article className="prose mb-3 max-w-none">
                         <p>
-                            Open standards and open-source tooling for data contracts.
+                            Build trust in data.
                         </p>
                     </article>
 
-                    <img src={datacontractImg} alt="Data Contract" className="mt-4"/>
+                    <img src={datacontractImg} alt="Data Contract" className="my-8 w-3/5 mx-auto py-4"/>
                 </div>
 
                 {/* Introduction */}
