@@ -234,7 +234,7 @@ function App() {
             </div>
 
             <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <article className="prose max-w-none mb-10">
+                <article className="prose max-w-none mb-36">
                     The core features are:
                     <ul>
                         <li><strong>Marketplace</strong> — A self-service data product marketplace for teams and AI
@@ -262,13 +262,46 @@ function App() {
 
                 </article>
 
+                {/* About Us */}
+                <article id="about" className="prose max-w-none scroll-mt-16 pb-36">
+                    <h2>About Us</h2>
+                    <p>
+                        We are <a href="https://www.linkedin.com/in/jochenchrist/"><strong>Jochen</strong></a> and <a href="https://www.linkedin.com/in/simonharrer/"><strong>Simon</strong></a>, founders of <a href="https://entropy-data.com">Entropy Data</a>.
+                    </p>
+                    <p>
+                        Our journey started with <a href="https://datamesh-architecture.com">Data Mesh Architecture</a>, where we published our perspective on data products and data mesh.
+                        As software engineers and consultants, we helped enterprises adopt data mesh principles
+                        and recognized the need for better tooling around data products. We created
+                        the <a href="https://github.com/datacontract/datacontract-cli">Data Contract CLI</a> as
+                        an open-source tool and developed the <a href="https://www.datacontract-specification.com">Data Contract Specification</a> to bring
+                        API-like contracts to the world of data.
+                    </p>
+                    <p>
+                        Today, we are members of the Technical Steering Committee
+                        of <a href="https://bitol.io">Bitol</a>, a Linux Foundation project that
+                        maintains the <a href="https://bitol-io.github.io/open-data-contract-standard/latest/">Open Data Contract Standard</a> and
+                        the <a href="https://bitol-io.github.io/open-data-product-standard/latest/">Open Data Product Standard</a>.
+                    </p>
+                    <p>
+                        We believe open standards are key. That's why we created
+                        the Data Contract Specification,
+                        and later deprecated it to bring our ideas into the Open Data Contract Standard —
+                        because a standard supported by many is more important than a specification driven by a single company.
+                        Our mission is to bring software engineering best practices and principles into
+                        the world of data — making data products as reliable and well-defined as APIs.
+                    </p>
+                    <p>
+                        In <a href="https://entropy-data.com">Entropy Data</a>, our commercial product, we bring everything together:
+                        open standards, open-source tooling, and a platform to manage data products with data contracts.
+                    </p>
+                </article>
 
             </main>
 
             {/* Footer */}
             <footer className="bg-white">
 
-                <div className="mx-auto max-w-6xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
+                <div className="mx-auto max-w-6xl overflow-hidden pb-20 px-6 lg:px-8">
 
 
                     <div className="mt-10 text-xs leading-5 text-gray-500">
