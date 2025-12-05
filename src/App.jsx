@@ -11,7 +11,7 @@ function App() {
             <DeprecationBanner />
 
             {/* Main Content */}
-            <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Title */}
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">Data Contracts</h1>
@@ -22,7 +22,7 @@ function App() {
                         </p>
                     </article>
 
-                    <img src={datacontractImg} alt="Data Contract" className="my-8 w-3/5 mx-auto py-4"/>
+                    <img src={datacontractImg} alt="Data Contract" className="my-8 w-full md:max-w-3/5 mx-auto py-4"/>
                 </div>
 
                 {/* Introduction */}
@@ -49,7 +49,7 @@ function App() {
 
 
             {/* Continue Main Content */}
-            <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-48">
+            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-48">
 
 
                 {/* Why Data Contracts Matter */}
@@ -85,7 +85,7 @@ function App() {
                 </article>
 
                 {/* Editor */}
-                <article id="editor" className="prose max-w-none mb-10 scroll-mt-16">
+                <article id="editor" className="prose max-w-none mb-8 scroll-mt-16">
                     <h2>Data Contract Editor</h2>
                     <p>
                         To create data contracts, we recommend using the <a href="https://editor.datacontract.com/">Data
@@ -97,7 +97,7 @@ function App() {
             </main>
 
             {/* Editor Section - Browser Frame */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                 <div className="rounded-lg bg-white border border-gray-200 shadow-xl overflow-hidden">
                     {/* Browser-like header */}
                     <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-b border-gray-200">
@@ -115,11 +115,20 @@ function App() {
                         onSave={(yaml) => console.log('Saved:', yaml)}
                     />
                 </div>
+
             </div>
 
-            <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <article className="prose max-w-none scroll-mt-16 pb-48">
+            <p>
+              Open the Data Contract Editor <a href="https://editor.datacontract.com" target="_blank">in a new window</a>, run it <a href="https://github.com/datacontract/datacontract-editor">locally as a standalone application</a>, or deploy it as a <a href="https://hub.docker.com/r/datacontract/editor">Docker container in your own environment</a>.
+            </p>
+          </article>
+          </main>
+
+            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
                 {/* CLI */}
-                <article id="cli" className="prose max-w-none scroll-mt-16 py-48">
+                <article id="cli" className="prose max-w-none scroll-mt-16 pb-8">
                     <h2>Data Contract CLI</h2>
                     <p>
                         The <a href="https://github.com/datacontract/datacontract-cli">Data Contract CLI</a> is an
@@ -128,6 +137,9 @@ function App() {
                         This is essential to build trust in your data product and ensure that the metadata is kept
                         up-to-date.
                     </p>
+                </article>
+            </main>
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                     <Terminal
                         lines={[
                             {
@@ -173,8 +185,11 @@ function App() {
                             '🟢 data contract is valid. Run 25 checks. Took 1.615702 seconds.',
                         ]}
                     />
-
-                    <p className="mt-10">
+      </div>
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
+        {/* CLI */}
+        <article className="prose max-w-none scroll-mt-16 pb-48">
+                    <p>
                         The <a href="https://github.com/datacontract/datacontract-cli">Data Contract CLI</a> supports
                         all major data platforms, including Databricks, Snowflake, AWS, BigQuery, and Azure.
                         Engineers can generate code and integrate with other systems using
@@ -188,10 +203,9 @@ function App() {
 
 
                 {/* Marketplace */}
-                <article id="entropy-data" className="prose max-w-none scroll-mt-16 py-36">
+                <article id="entropy-data" className="prose max-w-none scroll-mt-16 pb-8">
                     <h2>Entropy Data</h2>
-
-                    <p className="mt-10">
+                    <p>
                         <a href="https://entropy-data.com">Entropy Data</a> is our commercial product to manage data
                         products with data contracts.
                         It natively supports the Open Data Contract Standard, includes the Data Contract Editor, and
@@ -201,7 +215,7 @@ function App() {
             </main>
 
             {/* Entropy Data Section - Browser Frame */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                 <a href="http://demo.entropy-data.com">
                     <div className="rounded-lg bg-white border border-gray-200 shadow-xl overflow-hidden">
                         <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-b border-gray-200">
@@ -219,7 +233,7 @@ function App() {
                 </a>
             </div>
 
-            <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 <article className="prose max-w-none mb-10">
                     The core features are:
                     <ul>
@@ -254,7 +268,7 @@ function App() {
             {/* Footer */}
             <footer className="bg-white">
 
-                <div className="mx-auto max-w-7xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
+                <div className="mx-auto max-w-6xl overflow-hidden py-20 px-6 sm:py-24 lg:px-8">
 
 
                     <div className="mt-10 text-xs leading-5 text-gray-500">
