@@ -167,7 +167,7 @@ team:
   {
     id: 'sla',
     title: 'SLAs',
-    description: 'Service Level Agreements define non-functional guarantees. Data consumers can match these with their usa-case requirements.',
+    description: 'Service Level Agreements define non-functional guarantees. Data consumers can match these with their use-case requirements.',
     code: `apiVersion: v3.1.0
 kind: DataContract
 id: orders
@@ -182,7 +182,7 @@ slaProperties:
   - property: retention
     value: 1
     unit: year
-    description: Data well be deleted after 1 year
+    description: Data will be deleted after 1 year
   - property: freshness
     value: 24
     unit: hours
