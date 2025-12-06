@@ -33,11 +33,19 @@ function App() {
                         use for exchanging data between a data producer and their consumers. Think of an API, but for
                         data.
                     </p>
+
+                    <h2>Open Data Contract Standard</h2>
+
                     <p>
                         The industry standard for building data contracts is the <a
                         href="https://bitol-io.github.io/open-data-contract-standard/latest/">Open Data Contract
                         Standard</a> (ODCS), led by Bitol, a Linux Foundation project.
-                        Let's build a data contract step-by-step:
+                        With ODCS 3.1, we deprecated the <a
+                        href="https://datacontract-specification.com">Data Contract Specification</a> in favor of a single standard.
+
+                    </p>
+                    <p>
+                        Let's build an ODCS data contract step-by-step:
                     </p>
                 </article>
             </main>
@@ -63,7 +71,7 @@ function App() {
                         <li>
                             <strong>Communication</strong>: Bring data producers and data consumers together. Work
                             through the
-                            data contract sections and capture domain knowledge and specify consumer expectations.
+                            data contract sections to capture domain knowledge and specify consumer expectations.
                             Start contract-first using the visual <a href="/data-contract-editor">Data Contract
                             Editor</a> or the <a href="/excel-template">Data Contract Excel Template</a>.
                         </li>
@@ -82,6 +90,9 @@ function App() {
                             contract metadata as necessary context to chat and work with business data.
                         </li>
                     </ol>
+                    <p>
+                        Data Contracts are powerful when exchanging data with other teams or AI agents.
+                    </p>
                 </article>
 
                 {/* Editor */}
@@ -240,19 +251,19 @@ function App() {
                 <article className="prose max-w-none mb-36">
                     The core features are:
                     <ul>
-                        <li><strong>Marketplace</strong> — A self-service data product marketplace for teams and AI
+                        <li><strong>Marketplace</strong>: A self-service data product marketplace for teams and AI
                             agents to discover, request, and access data products with automated approval workflows.
                         </li>
-                        <li><strong>Studio</strong> — Design and develop data products using Web UI, YAML editor, API,
+                        <li><strong>Studio</strong>: Design and develop data products using Web UI, YAML editor, API,
                             or Excel templates with built-in testing to ensure compliance before production.
                         </li>
-                        <li><strong>Governance</strong> — Define ownership rules, naming conventions, and data
+                        <li><strong>Governance</strong>: Define ownership rules, naming conventions, and data
                             classification standards with AI-powered automated compliance checks.
                         </li>
-                        <li><strong>AI-Ready</strong> — Model Context Protocol (MCP) enables AI agents to access data
+                        <li><strong>AI-Ready</strong>: Model Context Protocol (MCP) enables AI agents to access data
                             products and write queries in natural language.
                         </li>
-                        <li><strong>Flexible Deployment</strong> — Available as cloud SaaS, self-hosted, or enterprise
+                        <li><strong>Flexible Deployment</strong>: Available as cloud SaaS, self-hosted, or enterprise
                             single-tenant options.
                         </li>
                     </ul>
@@ -287,11 +298,11 @@ function App() {
                     </p>
                     <p>
                         We believe open standards are key. That's why we created
-                        the Data Contract Specification,
-                        and later deprecated it to bring our ideas into the Open Data Contract Standard —
-                        because a standard supported by many is more important than a specification driven by a single company.
+                        the Data Contract Specification based on OpenAPI principles,
+                        and later deprecated it to bring our ideas into the Open Data Contract Standard,
+                        because a standard supported by many is more important than your own specification.
                         Our mission is to bring software engineering best practices and principles into
-                        the world of data — making data products as reliable and well-defined as APIs.
+                        the world of data, making data products as reliable and well-defined as APIs.
                     </p>
                     <p>
                         In <a href="https://entropy-data.com">Entropy Data</a>, our commercial product, we bring everything together:
