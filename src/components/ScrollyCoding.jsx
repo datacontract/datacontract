@@ -21,7 +21,7 @@ status: active`
   {
     id: 'schema',
     title: 'Schema',
-    description: 'The schema defines the structure and semantics of your data. Here we define an "orders" table with fields like order_id, customer_id, order_total, and timestamps. Each property includes its type, description, and constraints.',
+    description: 'The schema defines the structure and semantics of your data. Here we define the table structure with its columns. Each property includes technical details, business semantics, and governance attributes.',
     code: `apiVersion: v3.1.0
 kind: DataContract
 id: orders
@@ -63,7 +63,7 @@ schema:
   {
     id: 'quality',
     title: 'Data Quality',
-    description: 'Data quality rules ensure your data meets expectations. Define checks like valid value constraints, row count thresholds, and custom validation logic. These can be tested automatically with the Data Contract CLI.',
+    description: 'Data quality rules ensure that data meets expectations. Define checks like valid value constraints, row count thresholds, and custom SQL validation logic. These can be tested automatically with the Data Contract CLI.',
     code: `apiVersion: v3.1.0
 kind: DataContract
 id: orders

@@ -11,30 +11,35 @@ function App() {
             <DeprecationBanner />
 
             <main>
-            {/* Main Content */}
-            <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-                {/* Title */}
-                <div className="mb-8">
-                    <h1 className="text-3xl font-bold text-gray-900 mb-2">Data Contracts</h1>
-
-                    <div className="prose mb-3 max-w-none">
-                        <p>
-                            Build trust in data.
-                        </p>
+            {/* Hero Section */}
+            <div className="relative isolate">
+              <div className="pt-24 pb-12">
+                <div className="mx-auto max-w-7xl px-6 lg:px-8">
+                  <div className="mx-auto max-w-2xl text-center">
+                    <h1 className="text-5xl font-bold tracking-tight text-balance text-gray-900 sm:text-7xl">
+                      Data Contracts
+                    </h1>
+                    <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
+                      Build trust in data
+                    </p>
+                  </div>
+                  <div className="flow-root mt-12">
+                    <div className="-m-2 p-2 lg:-m-4 lg:p-4">
+                      <img src={datacontractImg} alt="Data Contract Diagram" className="mx-auto w-full max-w-2xl" />
                     </div>
-
-                    <img src={datacontractImg} alt="Data Contract" className="my-8 max-w-2xl mx-auto py-4"/>
+                  </div>
                 </div>
+              </div>
+            </div>
 
-                {/* Introduction */}
+            {/* Introduction */}
+            <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
                 <div id="what-is" className="prose max-w-none">
                     <p>
-                        A data contract is a document that defines the structure, format, semantics, quality, and terms
-                        of
-                        use for exchanging data between a data producer and their consumers. Think of an API, but for
+                        A data contract is a document that defines the ownership, structure, semantics, quality, and terms
+                        of use for exchanging data between a data producer and their consumers. Think of an API, but for
                         data.
                     </p>
-
                 </div>
             </section>
 
@@ -45,9 +50,9 @@ function App() {
                     <p>
                         The industry standard for building data contracts is the <a
                         href="https://bitol-io.github.io/open-data-contract-standard/latest/">Open Data Contract
-                        Standard</a> (ODCS), led by Bitol, a Linux Foundation project.
-                        With ODCS 3.1, we deprecated the <a
-                        href="https://datacontract-specification.com">Data Contract Specification</a> in favor of a single standard.
+                        Standard</a> (ODCS), led by Bitol (pronounce: bee-tohl), a Linux Foundation project.
+                        With the release of ODCS 3.1, we deprecated our <a
+                        href="https://datacontract-specification.com">Data Contract Specification</a> proposal in favor of a common single standard.
 
                     </p>
                     <p>
@@ -278,9 +283,9 @@ function App() {
                     </ul>
 
                     <p>
-                        Try the <a href="https://demo.entropy-data.com/">1-Click Playground</a> or <a
-                        href="https://github.com/entropy-data/entropy-data-ce">run it locally on your machine with
-                        Docker</a>.
+                        Try the <a href="https://demo.entropy-data.com/">1-Click Playground</a> or run the free <a
+                        href="https://github.com/entropy-data/entropy-data-ce">Community Edition</a> locally on your machine with
+                        Docker.
                     </p>
 
                 </div>
