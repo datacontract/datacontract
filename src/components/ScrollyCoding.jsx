@@ -262,7 +262,12 @@ export default function ScrollyCoding() {
           if (entry.isIntersecting) {
             const index = stepRefs.current.indexOf(entry.target)
             if (index !== -1) {
-              setSelectedIndex(index)
+              // Only allow moving one step at a time to prevent skipping
+              setSelectedIndex(prev => {
+                if (index > prev) return prev + 1
+                if (index < prev) return prev - 1
+                return prev
+              })
             }
           }
         })
