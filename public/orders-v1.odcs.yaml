@@ -174,10 +174,9 @@ slaProperties:
     value: business hours
     description: Support only during business hours
 price:
-  amount: 0
-  currency: USD
-  unit: monthly
-  description: Free for internal use
+  priceAmount: 0
+  priceCurrency: USD
+  priceUnit: monthly
 tags:
   - e-commerce
   - transactions
