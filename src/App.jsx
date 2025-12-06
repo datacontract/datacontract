@@ -243,8 +243,7 @@ function App() {
                                 <div className="w-3 h-3 rounded-full bg-yellow-400"/>
                                 <div className="w-3 h-3 rounded-full bg-green-400"/>
                             </div>
-                            <span className="text-gray-500 text-xs ml-2"><a
-                                href="https://entropy-data.com">entropy-data.com</a></span>
+                            <span className="text-gray-500 text-xs ml-2">entropy-data.com</span>
                         </div>
                         <img src="https://entropy-data.com/media/datamesh-manager-marketplace.webp"
                              alt="Entropy Data Marketplace" className="w-full"/>
