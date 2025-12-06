@@ -294,14 +294,19 @@ function App() {
                 <div id="about" className="prose max-w-none scroll-mt-16 pb-36">
                     <h2>About Us</h2>
                     <p>
-                        We are <a href="https://www.linkedin.com/in/jochenchrist/"><strong>Jochen</strong></a> and <a href="https://www.linkedin.com/in/simonharrer/"><strong>Simon</strong></a>, founders of <a href="https://entropy-data.com">Entropy Data</a>.
+                        This website is maintained by <a href="https://www.linkedin.com/in/jochenchrist/"><strong>Jochen</strong></a> and <a href="https://www.linkedin.com/in/simonharrer/"><strong>Simon</strong></a>.
+                        We want to spread the word about data contracts and data products, because we believe that
+                        high-quality data are the foundation effective decision-making, reliable AI, and long-term business impact.
+                        Our mission is to bring software engineering best practices and principles into
+                        the world of data, making data products as reliable and well-defined as APIs.
                     </p>
                     <p>
-                        Our journey started with <a href="https://datamesh-architecture.com">Data Mesh Architecture</a>, where we published our perspective on data products and data mesh.
+                        Our data journey started with <a href="https://datamesh-architecture.com">Data Mesh Architecture</a>,
+                        where we published our perspective on data products and data mesh.
                         As software engineers and consultants, we helped enterprises adopt data mesh principles
                         and recognized the need for better tooling around data products. We created
                         the <a href="https://github.com/datacontract/datacontract-cli">Data Contract CLI</a> as
-                        an open-source tool and developed the <a href="https://www.datacontract-specification.com">Data Contract Specification</a> to bring
+                        an open-source tool and initiated the <a href="https://www.datacontract-specification.com">Data Contract Specification</a> to bring
                         API-like contracts to the world of data.
                     </p>
                     <p>
@@ -311,16 +316,14 @@ function App() {
                         the <a href="https://bitol-io.github.io/open-data-product-standard/latest/">Open Data Product Standard</a>.
                     </p>
                     <p>
-                        We believe open standards are key. That's why we created
+                        We believe in open standards. That's why we created
                         the Data Contract Specification based on OpenAPI principles,
                         and later deprecated it to bring our ideas into the Open Data Contract Standard,
                         because a standard supported by many is more important than your own specification.
-                        Our mission is to bring software engineering best practices and principles into
-                        the world of data, making data products as reliable and well-defined as APIs.
                     </p>
                     <p>
                         In <a href="https://entropy-data.com">Entropy Data</a>, our commercial product, we bring everything together:
-                        open standards, open-source tooling, and a platform to manage data products with data contracts.
+                        open standards, data contract tooling, and a platform to manage data products with data contracts in a beautiful user interface.
                     </p>
                 </div>
 
