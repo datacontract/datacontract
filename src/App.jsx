@@ -83,8 +83,8 @@ function App() {
                             <strong>Communication</strong>: Bring data producers and data consumers together. Work
                             through the
                             data contract sections to capture domain knowledge and specify consumer expectations.
-                            Start contract-first using the visual <a href="/data-contract-editor">Data Contract
-                            Editor</a> or the <a href="/excel-template">Data Contract Excel Template</a>.
+                            Start contract-first using the visual <a href="https://github.com/datacontract/datacontract-editor">Data Contract
+                            Editor</a> or the <a href="https://github.com/datacontract/open-data-contract-standard-excel-template">Data Contract Excel Template</a>.
                         </li>
                         <li>
                             <strong>Trust</strong>: Automatically check that the data conforms to the data contract.
