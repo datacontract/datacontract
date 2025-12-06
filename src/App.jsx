@@ -22,7 +22,7 @@ function App() {
                         </p>
                     </article>
 
-                    <img src={datacontractImg} alt="Data Contract" className="my-8 w-full md:max-w-3/5 mx-auto py-4"/>
+                    <img src={datacontractImg} alt="Data Contract" className="my-8 max-w-2xl mx-auto py-4"/>
                 </div>
 
                 {/* Introduction */}
