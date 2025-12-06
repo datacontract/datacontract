@@ -4,11 +4,8 @@ import 'datacontract-editor/dist/datacontract-editor.css'
 
 export default function DataContractEditor({
   yaml,
-  onSave,
-  onCancel,
-  onDelete,
-  mode = 'EMBEDDED',
-  initialView = 'form',
+  mode = 'SERVER',
+  initialView = 'diagram',
   height = '800px'
 }) {
   const containerRef = useRef(null)
@@ -34,25 +31,27 @@ export default function DataContractEditor({
         yaml: yamlContent,
         initialView,
         onSave: (content) => {
-          console.log('Data contract saved:', content)
-          onSave?.(content)
+          const blob = new Blob([content], { type: 'application/x-yaml' })
+          const url = URL.createObjectURL(blob)
+          const a = document.createElement('a')
+          a.href = url
+          a.download = 'datacontract.yaml'
+          a.click()
+          URL.revokeObjectURL(url)
         },
-        onCancel: () => {
-          console.log('Edit cancelled')
-          onCancel?.()
-        },
-        onDelete: () => {
-          console.log('Delete requested')
-          onDelete?.()
-        },
+        isPreviewVisible: false,
         enablePersistence: false,
+        tests: {
+          enabled: true,
+          dataContractCliApiServerUrl: 'https://api.datacontract.com',
+        },
       })
     }
 
     return () => {
       editorRef.current = null
     }
-  }, [yamlContent])
+  }, [yamlContent, mode, initialView])
 
   return (
     <div

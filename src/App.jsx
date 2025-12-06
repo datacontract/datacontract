@@ -136,7 +136,6 @@ function App() {
                     {/* Editor content */}
                     <DataContractEditor
                         height="700px"
-                        onSave={(yaml) => console.log('Saved:', yaml)}
                     />
                 </div>
 
