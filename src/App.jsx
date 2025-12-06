@@ -52,8 +52,7 @@ function App() {
                         href="https://bitol-io.github.io/open-data-contract-standard/latest/">Open Data Contract
                         Standard</a> (ODCS), led by Bitol (named after a mayan god, pronounced: bee-tohl), a Linux Foundation project.
                         We joined forces with Bitol, contributed concepts and learnings, and with the release of ODCS 3.1,
-                        we can finally deprecate the <a href="https://datacontract-specification.com">Data Contract Specification</a>
-                        proposal in favor of a common single standard.
+                        we can finally deprecate the <a href="https://datacontract-specification.com">Data Contract Specification</a> proposal in favor of a common single standard.
                     </p>
                     <p>
                         Let's build an ODCS data contract step-by-step:
