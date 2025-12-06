@@ -27,7 +27,7 @@ function App() {
                 </div>
 
                 {/* Introduction */}
-                <div id="what-is" className="prose mb-10 max-w-none">
+                <div id="what-is" className="prose max-w-none">
                     <p>
                         A data contract is a document that defines the structure, format, semantics, quality, and terms
                         of
@@ -35,6 +35,11 @@ function App() {
                         data.
                     </p>
 
+                </div>
+            </section>
+
+            <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24">
+                <div id="odcs" className="prose mb-10 max-w-none">
                     <h2>Open Data Contract Standard</h2>
 
                     <p>
@@ -106,9 +111,8 @@ function App() {
                         preview as a HTML representation.
                     </p>
                     <p>
-                        Try out the editor below. It's not a screenshot, it's interactive!
-                    </p>
-                </div>
+                        Try out the editor. It's interactive!
+                    </p>                </div>
             </section>
 
             {/* Editor Section - Browser Frame */}
@@ -135,6 +139,7 @@ function App() {
 
           <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <div className="prose max-w-none scroll-mt-16 pb-48">
+
             <p>
               Open the Data Contract Editor <a href="https://editor.datacontract.com" target="_blank">in a new window</a>, run it <a href="https://github.com/datacontract/datacontract-editor">locally as a standalone application</a>, or deploy it as a <a href="https://hub.docker.com/r/datacontract/editor">Docker container in your own environment</a>.
             </p>
