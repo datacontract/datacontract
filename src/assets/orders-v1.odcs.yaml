@@ -162,11 +162,11 @@ slaProperties:
     value: 99.9%
     description: Data platform uptime guarantee
   - property: retention
-    value: 1
+    value: "1"
     unit: year
     description: Data will be deleted after 1 year
   - property: freshness
-    value: 24
+    value: "24"
     unit: hours
     element: orders.order_date
     description: Within 24 hours of order placement
