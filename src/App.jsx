@@ -19,8 +19,8 @@ function App() {
                     <h1 className="text-5xl font-bold tracking-tight text-balance text-gray-900 sm:text-7xl">
                       Data Contracts
                     </h1>
-                    <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
-                      Build trust in data
+                    <p className="mt-3 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8">
+                      Trust in data
                     </p>
                   </div>
                   <div className="flow-root mt-12">
