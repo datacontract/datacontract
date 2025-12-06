@@ -10,23 +10,24 @@ function App() {
             {/* Deprecation Banner */}
             <DeprecationBanner />
 
+            <main>
             {/* Main Content */}
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                 {/* Title */}
                 <div className="mb-8">
                     <h1 className="text-3xl font-bold text-gray-900 mb-2">Data Contracts</h1>
 
-                    <article className="prose mb-3 max-w-none">
+                    <div className="prose mb-3 max-w-none">
                         <p>
                             Build trust in data.
                         </p>
-                    </article>
+                    </div>
 
                     <img src={datacontractImg} alt="Data Contract" className="my-8 max-w-2xl mx-auto py-4"/>
                 </div>
 
                 {/* Introduction */}
-                <article id="what-is" className="prose mb-10 max-w-none">
+                <div id="what-is" className="prose mb-10 max-w-none">
                     <p>
                         A data contract is a document that defines the structure, format, semantics, quality, and terms
                         of
@@ -47,8 +48,8 @@ function App() {
                     <p>
                         Let's build an ODCS data contract step-by-step:
                     </p>
-                </article>
-            </main>
+                </div>
+            </section>
 
             {/* Scrollycoding Section - Full Width */}
             <div className="px-8 py-12 max-w-6xl mx-auto">
@@ -57,11 +58,11 @@ function App() {
 
 
             {/* Continue Main Content */}
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-48">
+            <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-48">
 
 
                 {/* Why Data Contracts Matter */}
-                <article id="why" className="prose max-w-none mb-48 scroll-mt-16">
+                <div id="why" className="prose max-w-none mb-48 scroll-mt-16">
                     <h2>Why Data Contracts Matter</h2>
                     <p>
                         Data contracts are not just documentation. They are the foundation for building trust and data
@@ -93,10 +94,10 @@ function App() {
                     <p>
                         Data Contracts are powerful when exchanging data with other teams or AI agents.
                     </p>
-                </article>
+                </div>
 
                 {/* Editor */}
-                <article id="editor" className="prose max-w-none mb-8 scroll-mt-16">
+                <div id="editor" className="prose max-w-none mb-8 scroll-mt-16">
                     <h2>Data Contract Editor</h2>
                     <p>
                         To create data contracts, we recommend using the <a href="https://editor.datacontract.com/">Data
@@ -107,8 +108,8 @@ function App() {
                     <p>
                         Try out the editor below. It's not a screenshot, it's interactive!
                     </p>
-                </article>
-            </main>
+                </div>
+            </section>
 
             {/* Editor Section - Browser Frame */}
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
@@ -132,17 +133,17 @@ function App() {
 
             </div>
 
-          <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <article className="prose max-w-none scroll-mt-16 pb-48">
+          <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
+          <div className="prose max-w-none scroll-mt-16 pb-48">
             <p>
               Open the Data Contract Editor <a href="https://editor.datacontract.com" target="_blank">in a new window</a>, run it <a href="https://github.com/datacontract/datacontract-editor">locally as a standalone application</a>, or deploy it as a <a href="https://hub.docker.com/r/datacontract/editor">Docker container in your own environment</a>.
             </p>
-          </article>
-          </main>
+          </div>
+          </section>
 
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
+            <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
                 {/* CLI */}
-                <article id="cli" className="prose max-w-none scroll-mt-16 pb-8">
+                <div id="cli" className="prose max-w-none scroll-mt-16 pb-8">
                     <h2>Data Contract CLI</h2>
                     <p>
                         The <a href="https://github.com/datacontract/datacontract-cli">Data Contract CLI</a> is an
@@ -151,8 +152,8 @@ function App() {
                         This is essential to build trust in your data product and ensure that the metadata is kept
                         up-to-date.
                     </p>
-                </article>
-            </main>
+                </div>
+            </section>
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                     <Terminal
                         lines={[
@@ -200,9 +201,9 @@ function App() {
                         ]}
                     />
       </div>
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
         {/* CLI */}
-        <article className="prose max-w-none scroll-mt-16 pb-48">
+        <div className="prose max-w-none scroll-mt-16 pb-48">
                     <p>
                         The <a href="https://github.com/datacontract/datacontract-cli">Data Contract CLI</a> supports
                         all major data platforms, including Databricks, Snowflake, AWS, BigQuery, and Azure.
@@ -213,11 +214,11 @@ function App() {
                         href="https://api.datacontract.com/">web server</a>, and much more.
 
                     </p>
-                </article>
+                </div>
 
 
                 {/* Marketplace */}
-                <article id="entropy-data" className="prose max-w-none scroll-mt-16 pb-8">
+                <div id="entropy-data" className="prose max-w-none scroll-mt-16 pb-8">
                     <h2>Entropy Data</h2>
                     <p>
                         <a href="https://entropy-data.com">Entropy Data</a> is our commercial product to manage data
@@ -225,8 +226,8 @@ function App() {
                         It natively supports the Open Data Contract Standard, includes the Data Contract Editor, and
                         integrates the Data Contract CLI.
                     </p>
-                </article>
-            </main>
+                </div>
+            </section>
 
             {/* Entropy Data Section - Browser Frame */}
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
@@ -247,8 +248,8 @@ function App() {
                 </a>
             </div>
 
-            <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <article className="prose max-w-none mb-36">
+            <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="prose max-w-none mb-36">
                     The core features are:
                     <ul>
                         <li><strong>Marketplace</strong>: A self-service data product marketplace for teams and AI
@@ -274,10 +275,10 @@ function App() {
                         Docker</a>.
                     </p>
 
-                </article>
+                </div>
 
                 {/* About Us */}
-                <article id="about" className="prose max-w-none scroll-mt-16 pb-36">
+                <div id="about" className="prose max-w-none scroll-mt-16 pb-36">
                     <h2>About Us</h2>
                     <p>
                         We are <a href="https://www.linkedin.com/in/jochenchrist/"><strong>Jochen</strong></a> and <a href="https://www.linkedin.com/in/simonharrer/"><strong>Simon</strong></a>, founders of <a href="https://entropy-data.com">Entropy Data</a>.
@@ -308,8 +309,9 @@ function App() {
                         In <a href="https://entropy-data.com">Entropy Data</a>, our commercial product, we bring everything together:
                         open standards, open-source tooling, and a platform to manage data products with data contracts.
                     </p>
-                </article>
+                </div>
 
+            </section>
             </main>
 
             {/* Footer */}
@@ -320,7 +322,7 @@ function App() {
 
                     <div className="mt-10 text-xs leading-5 text-gray-500">
                         <div className="flex justify-center space-x-6">
-                            <img src="https://entropy-data.com/media/logo_fuchsia_v2.svg" className="w-16"/>
+                            <img src="https://entropy-data.com/media/logo_fuchsia_v2.svg" className="w-16" alt="Entropy Data Logo" />
                         </div>
 
                         <div className="text-center mt-3">

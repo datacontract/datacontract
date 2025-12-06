@@ -183,6 +183,6 @@ tags:
   - transactions
   - pii
 customProperties:
-  - property: dataProductType
-    value: source-aligned
+  - property: dataPlatformRole
+    value: role_orders_v1
 contractCreatedTs: "2025-01-15T10:00:00Z"
