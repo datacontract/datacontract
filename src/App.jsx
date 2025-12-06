@@ -174,7 +174,7 @@ function App() {
                                 type: 'command',
                                 text: 'export DATACONTRACT_POSTGRES_PASSWORD=jio10JuQfDfl9JCCPdaCCpuZ1YO'
                             },
-                            {type: 'command', text: 'datacontract test orders-v1.odcs.yaml'},
+                            {type: 'command', text: 'datacontract test https://datacontract.com/orders-v1.odcs.yaml'},
                             '\n',
                             'Testing orders-v1.odcs.yaml',
                             '╭────────┬──────────────────────────────────────────────────────────┬─────────────────────────┬─────────╮',
