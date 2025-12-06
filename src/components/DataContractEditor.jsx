@@ -1,10 +1,9 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { init } from 'datacontract-editor/dist/datacontract-editor.es.js'
 import 'datacontract-editor/dist/datacontract-editor.css'
-import defaultYaml from '../assets/orders-v1.odcs.yaml?raw'
 
 export default function DataContractEditor({
-  yaml = defaultYaml,
+  yaml,
   onSave,
   onCancel,
   onDelete,
@@ -14,17 +13,29 @@ export default function DataContractEditor({
 }) {
   const containerRef = useRef(null)
   const editorRef = useRef(null)
+  const [defaultYaml, setDefaultYaml] = useState(null)
+
+  // Fetch default YAML if none provided
+  useEffect(() => {
+    if (!yaml) {
+      fetch('/orders-v1.odcs.yaml')
+        .then(res => res.text())
+        .then(setDefaultYaml)
+    }
+  }, [yaml])
+
+  const yamlContent = yaml || defaultYaml
 
   useEffect(() => {
-    if (containerRef.current && !editorRef.current) {
+    if (containerRef.current && !editorRef.current && yamlContent) {
       editorRef.current = init({
         container: containerRef.current,
         mode,
-        yaml,
+        yaml: yamlContent,
         initialView,
-        onSave: (yamlContent) => {
-          console.log('Data contract saved:', yamlContent)
-          onSave?.(yamlContent)
+        onSave: (content) => {
+          console.log('Data contract saved:', content)
+          onSave?.(content)
         },
         onCancel: () => {
           console.log('Edit cancelled')
@@ -41,7 +52,7 @@ export default function DataContractEditor({
     return () => {
       editorRef.current = null
     }
-  }, [])
+  }, [yamlContent])
 
   return (
     <div

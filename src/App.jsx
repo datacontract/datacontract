@@ -159,6 +159,10 @@ function App() {
                         lines={[
                             {
                                 type: 'command',
+                                text: 'uv tool install --python python3.11 \'datacontract-cli[all]\''
+                            },
+                            {
+                                type: 'command',
                                 text: 'export DATACONTRACT_POSTGRES_USERNAME=datacontract_cli.egzhawjonpfweuutedfy'
                             },
                             {
@@ -166,7 +170,7 @@ function App() {
                                 text: 'export DATACONTRACT_POSTGRES_PASSWORD=jio10JuQfDfl9JCCPdaCCpuZ1YO'
                             },
                             {type: 'command', text: 'datacontract test orders-v1.odcs.yaml'},
-                            '',
+                            '\n',
                             'Testing orders-v1.odcs.yaml',
                             '╭────────┬──────────────────────────────────────────────────────────┬─────────────────────────┬─────────╮',
                             '│ Result │ Check                                                    │ Field                   │ Details │',

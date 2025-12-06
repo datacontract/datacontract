@@ -2,11 +2,10 @@ import { useState, useEffect, useRef } from 'react'
 import { Pre, highlight } from 'codehike/code'
 import { tokenTransitions } from './token-transitions'
 import { focus } from './focus'
-import fullContractYaml from '../assets/orders-v1.odcs.yaml?raw'
 
 // Progressive code snippets that build up the data contract
 // Using # !focus(start:end) to highlight new sections
-const codeSteps = [
+const getCodeSteps = (fullContractYaml) => [
   {
     id: 'fundamentals',
     title: 'Fundamentals',
@@ -231,23 +230,32 @@ servers:
 export default function ScrollyCoding() {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const [highlightedSteps, setHighlightedSteps] = useState([])
+  const [codeSteps, setCodeSteps] = useState([])
   const stepRefs = useRef([])
 
-  // Pre-highlight all code snippets on mount for smooth transitions
+  // Fetch full contract YAML and initialize code steps
   useEffect(() => {
-    async function highlightAllCode() {
+    async function init() {
+      const response = await fetch('/orders-v1.odcs.yaml')
+      const fullContractYaml = await response.text()
+      const steps = getCodeSteps(fullContractYaml)
+      setCodeSteps(steps)
+
+      // Pre-highlight all code snippets for smooth transitions
       const highlighted = await Promise.all(
-        codeSteps.map((step) =>
+        steps.map((step) =>
           highlight({ value: step.code, lang: 'yaml', meta: '' }, 'github-dark')
         )
       )
       setHighlightedSteps(highlighted)
     }
-    highlightAllCode()
+    init()
   }, [])
 
   // Intersection observer for scroll-based selection
   useEffect(() => {
+    if (codeSteps.length === 0) return
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -270,7 +278,12 @@ export default function ScrollyCoding() {
     })
 
     return () => observer.disconnect()
-  }, [])
+  }, [codeSteps])
+
+  // Don't render until code steps are loaded
+  if (codeSteps.length === 0) {
+    return <div className="flex gap-8 min-h-[600px]" />
+  }
 
   return (
     <div className="flex gap-8">
