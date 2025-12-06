@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Pre, highlight } from 'codehike/code'
 import { tokenTransitions } from './token-transitions'
 import { focus } from './focus'
+import fullContractYaml from '../assets/orders-v1.odcs.yaml?raw'
 
 // Progressive code snippets that build up the data contract
 // Using # !focus(start:end) to highlight new sections
@@ -218,6 +219,12 @@ servers:
     port: 6543
     database: postgres
     schema: dp_orders_v1`
+  },
+  {
+    id: 'full-contract',
+    title: 'Full Example',
+    description: 'Here is the full data contract bringing all the elements together: fundamentals, a schema with two tables, data quality rules, team, terms of use, servers, and custom properties.',
+    code: fullContractYaml
   }
 ]
 

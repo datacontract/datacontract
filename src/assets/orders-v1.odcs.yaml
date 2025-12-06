@@ -5,9 +5,17 @@ name: Orders
 version: 1.0.0
 status: active
 description:
-  purpose: analytical
-  usage: This data set can be used for analytical purposes and AI applications.
-  limitations: Internal use only. Do not disclose with external parties.
+  purpose: "Provides order and line item data for analytics and reporting"
+  usage: "Used by analytics team for sales analysis and business intelligence"
+  limitations: "Contains only the last 2 years of data"
+  customProperties:
+    - property: "sensitivity"
+      value: "secret"
+      description: "Data contains personally identifiable information"
+  authoritativeDefinitions:
+    - url: "https://entropy-data.com/policies/gdpr-compliance"
+      type: "businessDefinition"
+      description: "GDPR compliance policy for handling customer data"
 schema:
   - name: orders
     physicalType: TABLE
@@ -144,3 +152,37 @@ team:
   authoritativeDefinitions:
     - type: slack
       url: https://slack.example.com/teams/sales
+roles:
+  - role: analyst_us
+    description: Read access for analytics to US orders
+  - role: analyst_eu
+    description: Read access for analytics to EU orders
+slaProperties:
+  - property: availability
+    value: 99.9%
+    description: Data platform uptime guarantee
+  - property: retention
+    value: 1
+    unit: year
+    description: Data will be deleted after 1 year
+  - property: freshness
+    value: 24
+    unit: hours
+    element: orders.order_date
+    description: Within 24 hours of order placement
+  - property: support
+    value: business hours
+    description: Support only during business hours
+price:
+  amount: 0
+  currency: USD
+  unit: monthly
+  description: Free for internal use
+tags:
+  - e-commerce
+  - transactions
+  - pii
+customProperties:
+  - property: dataProductType
+    value: source-aligned
+contractCreatedTs: "2025-01-15T10:00:00Z"
