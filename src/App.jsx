@@ -182,6 +182,7 @@ function App() {
                             {type: 'command', text: 'datacontract test https://datacontract.com/orders-v1.odcs.yaml'},
                             '\n',
                             'Testing orders-v1.odcs.yaml',
+                            'Server: production (type=postgres, host=aws-1-eu-central-2.pooler.supabase.com, port=6543, database=postgres, schema=dp_orders_v1)',
                             '╭────────┬──────────────────────────────────────────────────────────┬─────────────────────────┬─────────╮',
                             '│ Result │ Check                                                    │ Field                   │ Details │',
                             '├────────┼──────────────────────────────────────────────────────────┼─────────────────────────┼─────────┤',
