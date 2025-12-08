@@ -263,17 +263,19 @@ function App() {
             {/* Entropy Data Section - Browser Frame */}
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-8">
                 <a href="http://demo.entropy-data.com">
-                    <div className="rounded-lg bg-white border border-gray-200 shadow-xl overflow-hidden">
-                        <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-b border-gray-200">
-                            <div className="flex gap-1.5">
-                                <div className="w-3 h-3 rounded-full bg-red-400"/>
-                                <div className="w-3 h-3 rounded-full bg-yellow-400"/>
-                                <div className="w-3 h-3 rounded-full bg-green-400"/>
+                    <div className="-m-2 p-2 lg:-m-4 lg:p-4 rounded-xl lg:rounded-2xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 hover:bg-indigo-500 hover:ring-indigo-900 transition-all duration-300">
+                        <div className="rounded-lg bg-white shadow-2xl ring-1 ring-gray-900/10 overflow-hidden">
+                            <div className="flex items-center gap-2 px-4 py-2 bg-gray-100 border-b border-gray-200">
+                                <div className="flex gap-1.5">
+                                    <div className="w-3 h-3 rounded-full bg-red-400"/>
+                                    <div className="w-3 h-3 rounded-full bg-yellow-400"/>
+                                    <div className="w-3 h-3 rounded-full bg-green-400"/>
+                                </div>
+                                <span className="text-gray-500 text-xs ml-2">entropy-data.com</span>
                             </div>
-                            <span className="text-gray-500 text-xs ml-2">entropy-data.com</span>
+                            <img src="https://entropy-data.com/media/datamesh-manager-marketplace.webp"
+                                 alt="Entropy Data Marketplace" className="w-full"/>
                         </div>
-                        <img src="https://entropy-data.com/media/datamesh-manager-marketplace.webp"
-                             alt="Entropy Data Marketplace" className="w-full"/>
                     </div>
                 </a>
             </div>
