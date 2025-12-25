@@ -168,7 +168,7 @@ slaProperties:
   - property: freshness
     value: "24"
     unit: hours
-    element: orders.order_date
+#    element: orders.order_timestamp # enable this to check freshness with Data Contract CLI
     description: Within 24 hours of order placement
   - property: support
     value: business hours
