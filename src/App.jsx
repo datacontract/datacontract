@@ -249,6 +249,18 @@ function App() {
                     </p>
                 </div>
 
+                {/* Agent Skills */}
+                <div id="skills" className="prose max-w-none scroll-mt-16 pb-48">
+                    <h2>Data Contract Skills</h2>
+                    <p>
+                        The open-source <a href="https://github.com/datacontract/datacontract-skills">Data Contract
+                        Skills</a> teach coding agents such as Claude Code, Codex, and GitHub Copilot to work with data
+                        contracts: create a data contract from an existing table or from requirements, test the data and
+                        explain failing checks, add quality rules, detect breaking changes, generate code, set up CI/CD,
+                        and open contracts in the Data Contract Editor.
+                        The skills use the Data Contract CLI and the Data Contract Editor under the hood.
+                    </p>
+                </div>
 
                 {/* Marketplace */}
                 <div id="entropy-data" className="prose max-w-none scroll-mt-16 pb-8">
