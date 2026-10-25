@@ -178,7 +178,7 @@ function App() {
                         data contracts and to detect schema drift.
                         This is essential to build trust in your data product and ensure that the metadata is kept
                         up-to-date.
-                        Read the <a href="https://docs.datacontract.com">documentation</a> to learn more.
+                        Read the <a href="https://cli.datacontract.com">documentation</a> to learn more.
                     </p>
                 </div>
             </section>
