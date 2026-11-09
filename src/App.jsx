@@ -42,6 +42,11 @@ function App() {
                         of use for exchanging data between a data producer and their consumers. Think of an API, but for
                         data.
                     </p>
+                    <p>
+                        New to data contracts? Learn them hands-on in our free tutorial <a
+                        href="https://learn.datacontract.com/en/?utm_source=datacontract.com&utm_medium=referral&utm_content=intro"
+                        data-umami-event="to-tutorial" data-umami-event-area="intro">Data Contracts in Practice</a>.
+                    </p>
                 </article>
             </section>
 
@@ -246,6 +251,18 @@ function App() {
                         href="https://github.com/datacontract/datacontract-action/">GitHub Action</a>, as a <a
                         href="https://api.datacontract.com/">web server</a>, and much more.
 
+                    </p>
+                </div>
+
+                {/* Tutorial */}
+                <div id="tutorial" className="prose max-w-none scroll-mt-16 pb-48">
+                    <h2>Learn Data Contracts Hands-On</h2>
+                    <p>
+                        <a href="https://learn.datacontract.com/en/?utm_source=datacontract.com&utm_medium=referral&utm_content=section"
+                        data-umami-event="to-tutorial" data-umami-event-area="section">Data Contracts in Practice</a> is
+                        a free, self-paced tutorial in English and German (about 6 hours). You write an ODCS data contract
+                        for a real PostgreSQL database and test it with the Data Contract CLI, release a breaking change as
+                        a new version, describe the data product behind it, and block breaking changes in CI/CD.
                     </p>
                 </div>
 
